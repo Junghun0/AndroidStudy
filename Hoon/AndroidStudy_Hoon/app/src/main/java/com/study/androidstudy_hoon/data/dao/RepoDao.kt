@@ -2,8 +2,10 @@ package com.study.androidstudy_hoon.data.dao
 
 import androidx.room.*
 import com.study.androidstudy_hoon.data.dto.Repo
+import dagger.Binds
 import io.reactivex.Completable
 import io.reactivex.Observable
+import javax.inject.Singleton
 
 @Dao
 interface RepoDao {

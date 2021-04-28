@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,20 +13,18 @@ import com.study.androidstudy_hoon.domain.base.BaseActivity
 import com.study.androidstudy_hoon.presenter.search.DetailFragment
 import com.study.androidstudy_hoon.presenter.search.SearchAdapter
 import com.study.androidstudy_hoon.presenter.search.SearchViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
+@AndroidEntryPoint
 class SearchActivity : BaseActivity<ActivitySearchBinding>({ ActivitySearchBinding.inflate(it) }) {
 
-    private lateinit var viewModel: SearchViewModel
+    private val viewModel: SearchViewModel by viewModels()
     private val searchAdapter by lazy { SearchAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewModel =
-            ViewModelProvider(this, Injection.provideSearchViewModelFactory(applicationContext))
-                .get(SearchViewModel::class.java)
 
         setContentView(binding.root)
         initObserve()

@@ -6,7 +6,9 @@ import com.bumptech.glide.Glide
 import com.study.androidstudy_hoon.data.dto.Repo
 import com.study.androidstudy_hoon.databinding.FragmentSearchDetailBinding
 import com.study.androidstudy_hoon.domain.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment :
     BaseFragment<FragmentSearchDetailBinding>(FragmentSearchDetailBinding::inflate) {
 

@@ -7,10 +7,13 @@ import com.study.androidstudy_hoon.data.dto.Repo
 import com.study.androidstudy_hoon.domain.base.BaseViewModel
 import com.study.androidstudy_hoon.domain.usecase.RoomRepoUseCase
 import com.study.androidstudy_hoon.domain.usecase.SearchRepoUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class SearchViewModel(
+@HiltViewModel
+class SearchViewModel @Inject constructor(
     private val searchRepoUseCase: SearchRepoUseCase,
     private val roomRepoUseCase: RoomRepoUseCase
 ) : BaseViewModel() {
